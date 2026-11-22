@@ -1,6 +1,6 @@
 {
-  "flag": "GREEN",
-  "validRange": "Awaiting SHM Update",
+  "flag": "STANDBY",
+  "validRange": "Awaiting SHM Sector A Forecast",
   "updatedAt": "",
   "lastDate": ""
 }
