@@ -1,0 +1,22 @@
+name: SHM Balloon Monitor
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: node check.js
+      - run: |
+          git config user.name "SHM Bot"
+          git config user.email "bot@charmingcavehotel.com"
+          git add status.json
+          git commit -m "Update SHM status" || exit 0
+          git push
